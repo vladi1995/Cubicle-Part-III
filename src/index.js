@@ -1,6 +1,7 @@
 const express = require('express');
 
 const routes = require('./routes');
+const cookieParser = require('cookie-parser');
 const { initializeDatabase } = require('./config/database'); //Initialize the database
 const { handlebars } = require('./config/handlebars'); //Handlebars function 
 
@@ -8,6 +9,7 @@ const port = 5000;
 const app = express();
 
 app.use('/static', express.static('public'));
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false })); //Required for POST/PUT requests only. We send data to the server. 
 //It recognizes the incoming Request Object as STRING OR ARRAYS!
 //Extended false: we parse the URL-endoded data with querystring library

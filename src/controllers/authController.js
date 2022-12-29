@@ -27,6 +27,7 @@ router.post('/login', async (req, res) => {
         return;
     }
 
+    res.cookie('session', token);
     res.redirect('/');
 });
 
