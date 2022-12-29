@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     const queryString = req.query;
     const {search, from, to} = queryString;
     const cubes = await cubeService.getAll(search, from, to);
-    console.log(cubes);
+
     res.render('index', {cubes, search, from, to});
 });
 
