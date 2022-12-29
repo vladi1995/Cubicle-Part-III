@@ -2,6 +2,9 @@ const Cube = require('../models/Cube');
 const accessoryService = require('./accessoryService');
 
 exports.create = (cube) => Cube.create(cube);
+exports.edit = (cubeId, cubeData) => {
+    return Cube.findByIdAndUpdate(cubeId, cubeData);
+}
 exports.getOne = (id) => Cube.findById(id);
 exports.getOneDetailed = (id) => Cube.findById(id).populate('accessories');
 
